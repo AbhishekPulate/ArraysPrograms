@@ -22,27 +22,28 @@ public class Diff_Of_Two_Arrays {
 		System.out.println(Arrays.toString(arr2));
 		
 		int[] result  = arraySubtraction(arr1,arr2);
+	
+		int idx = 0;
+		while(idx<result.length)
+		{
+			if(result[idx]==0)
+			{
+				idx++;
+			}
+			else
+			{
+				break;
+			}
+		}
 		
-//		int cnt = 0;
-//		for(int i = 0;i<res.length;i++)
-//		{
-//			if(res[i]>0)
-//			{
-//				break;
-//			}
-//			else
-//			{
-//				cnt++;
-//			}
-//		}
-//		int[] result =  new int[res.length-cnt];
-//		for(int i = cnt-1,j=0;i<result.length;i++,j++)
-//		{
-//			result[j] = res[i]; 
-//		}
 		
-		System.out.println("After successuful subtraction the result is as follows.");
-		System.out.println(Arrays.toString(result));
+		System.out.println("After successuful subtraction the result is as follows. :");
+		
+		while(idx<result.length)
+		{
+			System.out.print(result[idx]);
+			idx++;
+		}
 		
 	}
 	public static int count(int num)
