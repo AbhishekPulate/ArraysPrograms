@@ -21,8 +21,34 @@ public class Diff_Of_Two_Arrays {
 		arr2 = add(num2,cnt2);
 		System.out.println(Arrays.toString(arr2));
 		
-		int[] result  = arraySubtraction(arr1,arr2);
 	
+		
+		 int[] result = new int[arr2.length];
+	        
+	        int i = arr1.length - 1;
+	        int j = arr2.length - 1;
+	        int k = arr2.length - 1;
+	        int borrow = 0;
+
+	        while (j >= 0) {
+	            int d1 = (i >= 0) ? arr1[i] : 0;
+	            int d2 = arr2[j];
+
+	            int sub = d2 - borrow - d1;
+
+	            if (sub < 0) {
+	                sub += 10;
+	                borrow = 1;
+	            } else {
+	                borrow = 0;
+	            }
+
+	            result[k] = sub;
+
+	            i--; j--; k--;
+	        }
+	        
+	        
 		int idx = 0;
 		while(idx<result.length)
 		{
@@ -35,6 +61,7 @@ public class Diff_Of_Two_Arrays {
 				break;
 			}
 		}
+		
 		
 		
 		System.out.println("After successuful subtraction the result is as follows. :");
